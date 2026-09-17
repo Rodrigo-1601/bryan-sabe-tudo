@@ -1,0 +1,447 @@
+:root {
+  --yellow: #f5c518;
+  --black: #151515;
+  --panel: #202020;
+  --paper: #f6f1df;
+  --green: #2fa86f;
+  --red: #c45d68;
+  --blue: #53657c;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; background: var(--black); color: var(--white); }
+
+body {
+  font-family: "VT323", monospace;
+  overflow-x: hidden;
+}
+
+button { font: inherit; }
+
+.topbar {
+  height: 64px;
+  padding: 0 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  border-bottom: 1px solid #666;
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+}
+
+.brand, .nav-btn {
+  color: #fff;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.brand {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(.7rem, 1.2vw, 1rem);
+}
+
+.topbar nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.nav-btn.active { color: var(--yellow); }
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding-top: 64px;
+}
+
+.active-screen { display: block; }
+
+/* INÍCIO */
+#inicio {
+    background-color: var(--yellow);
+    color: #111;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Padrao */
+#inicio::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("img/padrao.png");
+    background-repeat: repeat;
+    background-size: 500px auto;
+
+    opacity: 0.10;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Logo, texto e botão ficam acima do pattern */
+#inicio .start-wrap {
+    position: relative;
+    z-index: 1;
+}
+}
+
+.start-wrap {
+    position: relative;
+    z-index: 1;
+
+    min-height: calc(100vh - 64px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+}
+
+}
+
+.logo-mark { font-size: clamp(3rem, 8vw, 7rem); line-height: 1; }
+
+.start-wrap h1 {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(2.2rem, 7vw, 6rem);
+  line-height: 1.2;
+  margin: 18px 0;
+}
+
+.start-wrap p {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(.55rem, 1.4vw, .9rem);
+  margin-bottom: 42px;
+}
+
+.start-button {
+  width: min(150px, 80vw);
+  aspect-ratio: 1.8 / 1;
+  border: 5px solid #111;
+  background: transparent;
+  box-shadow: 9px 9px 0 #111;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: .15s ease;
+  font-family: "Press Start 2P", monospace;
+}
+
+.start-button:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 5px 5px 0 #111;
+  background: #fff3a8;
+}
+
+.start-button .play { font-size: 2rem; }
+.start-wrap small { margin-top: 45px; font-size: 1.2rem; }
+
+/* JOGO */
+.game-screen {
+  position: relative;
+  background:
+    linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.28)),
+    radial-gradient(circle at 50% 35%, #596a52 0 28%, #2f392f 29% 48%, #70573e 49% 100%);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 64px 0 0;
+  background-image: linear-gradient(transparent 96%, rgba(255,255,255,.04) 100%);
+  background-size: 100% 5px;
+  pointer-events: none;
+}
+
+.stats-panel {
+  position: absolute;
+  top: 90px;
+  left: 2vw;
+  width: min(260px, 23vw);
+  background: rgba(16,16,16,.92);
+  border: 2px solid #79654b;
+  padding: 18px;
+  z-index: 3;
+  box-shadow: 5px 5px 0 rgba(0,0,0,.4);
+}
+
+.stats-panel h2, .stats-panel h3 { margin-top: 0; }
+.stats-panel p { margin: 5px 0; font-size: 1.2rem; }
+.level-row { display:flex; justify-content:space-between; font-size:1.2rem; }
+.xp-track { height: 16px; background:#555; border:1px solid #999; margin:8px 0 16px; }
+#xpBar { width:0%; height:100%; background:var(--yellow); transition:.25s; }
+
+.classroom-title {
+  position: absolute;
+  top: 110px;
+  left: 31%;
+  opacity: .75;
+  transform: rotate(-4deg);
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: .85;
+}
+.classroom-title strong { display:block; font-size:1.25em; }
+
+.bryan-area {
+  min-height: calc(100vh - 64px);
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  position:relative;
+  padding-bottom: 185px;
+}
+
+.character-placeholder {
+  width: min(420px, 38vw);
+  height: min(570px, 62vh);
+  border: 3px dashed rgba(255,255,255,.55);
+  background: rgba(255,255,255,.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:"Press Start 2P", monospace;
+  font-size:.7rem;
+}
+.placeholder-icon { font-size: clamp(4rem, 9vw, 8rem); margin-bottom: 25px; }
+
+.dialogue {
+  position:absolute;
+  top: 31%;
+  left: 61%;
+  width:min(360px, 31vw);
+  padding:22px;
+  background:var(--paper);
+  color:#111;
+  border:5px solid #111;
+  box-shadow:7px 7px 0 #111;
+  font-family:"Press Start 2P", monospace;
+  font-size:clamp(.58rem, 1vw, .8rem);
+  line-height:1.7;
+}
+
+.controls {
+  position:absolute;
+  z-index:4;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(780px, 92vw);
+  background:rgba(17,17,17,.96);
+  border:2px solid #8a6c47;
+  padding:14px 18px 18px;
+}
+.controls > p { margin:0 0 10px; font-size:1.35rem; }
+
+.reaction-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr 1.05fr;
+  gap:10px;
+}
+.reaction-grid button {
+  min-height:54px;
+  color:#fff;
+  background:#292929;
+  border:2px solid #ddd;
+  cursor:pointer;
+  font-size:1.15rem;
+}
+.reaction-grid button:hover { transform:translateY(-2px); filter:brightness(1.15); }
+.reaction-grid button:nth-child(1) { border-color:#6ee0a5; }
+.reaction-grid button:nth-child(2) { border-color:#91a9c8; }
+.reaction-grid button:nth-child(4) { border-color:#e7838c; }
+.reaction-grid .next {
+  grid-column:3;
+  grid-row:1 / span 2;
+  background:var(--yellow);
+  color:#111;
+  border-color:#fff;
+  font-weight:bold;
+}
+
+.achievement {
+  position:fixed;
+  top:85px;
+  right:20px;
+  z-index:200;
+  background:var(--yellow);
+  color:#111;
+  border:3px solid #111;
+  padding:16px;
+  transform:translateX(130%);
+  transition:.35s;
+  max-width:320px;
+}
+.achievement.show { transform:translateX(0); }
+
+/* ALUNOS */
+.students-screen {
+  background:#202020;
+  min-height:100vh;
+  border:1px solid #fff;
+}
+
+.students-header {
+  text-align:center;
+  padding:45px 20px 20px;
+}
+.students-header h2 {
+  font-family:"Press Start 2P", monospace;
+  font-size:1rem;
+}
+.students-header p { font-size:1.4rem; }
+
+.student-card {
+  width:min(950px, 88vw);
+  min-height:480px;
+  margin:15px auto;
+  display:grid;
+  grid-template-columns:42% 58%;
+  align-items:center;
+  gap:50px;
+}
+
+.student-photo {
+  display:flex;
+  justify-content:center;
+}
+.student-placeholder {
+  width:min(300px, 100%);
+  aspect-ratio:3/4;
+  border:3px solid #fff;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  font-family:"Press Start 2P", monospace;
+  line-height:2;
+}
+
+.student-info { font-size:1.45rem; }
+.student-info h2 {
+  font-family:"Press Start 2P", monospace;
+  font-size:1.1rem;
+}
+.student-info .line { width:180px; border-top:2px solid #fff; margin:15px 0; }
+.stat {
+  display:grid;
+  grid-template-columns:170px 1fr;
+  align-items:center;
+  margin:8px 0;
+}
+.bar { height:17px; border:1px solid #fff; background:#333; max-width:240px; }
+.bar i { display:block; height:100%; background:#fff; transition:.3s; }
+.ability { margin-top:20px; }
+blockquote {
+  margin:28px 0 0;
+  max-width:450px;
+  font-size:1.5rem;
+  line-height:1.2;
+}
+
+.student-nav {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  padding:5px 0 35px;
+}
+.student-nav button {
+  border:0;
+  background:none;
+  color:#fff;
+  cursor:pointer;
+  font-size:1.7rem;
+}
+#studentDots { display:flex; gap:12px; }
+.dot {
+  width:8px; height:8px; border-radius:50%; background:#fff; opacity:.35;
+}
+.dot.active { opacity:1; transform:scale(1.4); }
+
+/* RESPONSIVO */
+@media (max-width: 760px) {
+  .topbar { height:auto; min-height:64px; flex-direction:column; gap:8px; padding:10px; }
+  .screen { padding-top:82px; }
+  .topbar nav { font-size:1.05rem; }
+
+  .stats-panel { display:none; }
+  .classroom-title { left:7%; top:110px; }
+  .bryan-area { align-items:center; padding:180px 15px 330px; }
+  .character-placeholder { width:70vw; height:46vh; }
+  .dialogue {
+    top:auto; bottom:250px; left:50%; transform:translateX(-50%);
+    width:88vw;
+  }
+  .controls { bottom:10px; }
+  .reaction-grid { grid-template-columns:1fr 1fr; }
+  .reaction-grid .next { grid-column:1 / -1; grid-row:auto; }
+  .reaction-grid button { min-height:48px; }
+
+  .student-card {
+    grid-template-columns:1fr;
+    gap:25px;
+    min-height:0;
+  }
+  .student-placeholder { width:min(230px, 70vw); }
+  .student-info { width:100%; }
+  .stat { grid-template-columns:145px 1fr; }
+  blockquote { margin-bottom:10px; }
+}
+.logo-inicio {
+    width: min(700px, 150vw);
+    height: auto;
+    display: block;
+}
+
+/* CORREÇÃO TELA INICIAL */
+
+#inicio {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#inicio .start-wrap {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: calc(100vh - 64px);
+
+    margin: 0 auto;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+#inicio .logo-inicio {
+    display: block;
+    width: min(550px, 80vw);
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inicio .start-button {
+    margin-left: auto;
+    margin-right: auto;
+}

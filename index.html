@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bryan Sabe Tudo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-screen="inicio">Bryan Sabe Tudo</button>
+    <nav>
+      <button data-screen="inicio" class="nav-btn active">INÍCIO</button>
+      <span>|</span>
+      <button data-screen="jogar" class="nav-btn">JOGAR</button>
+      <span>|</span>
+      <button data-screen="alunos" class="nav-btn">ALUNOS</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INÍCIO -->
+    <section id="inicio" class="screen active-screen">
+      <div class="start-wrap">
+        <div class="logo-mark"></div>
+        <img src="img/logo.png" alt="Lab do Bryan" class="logo-inicio">
+        <p>FATOS INÚTEIS PARA UM MUNDO MELHOR</p>
+        <button id="startGame" class="start-button">
+          <span class="play"></span>
+          <span>▶INICIAR JOGO</span>
+        </button>
+        <small>VERSÃO 0.1</small>
+      </div>
+    </section>
+
+    <!-- JOGAR -->
+    <section id="jogar" class="screen game-screen">
+      <div class="game-overlay"></div>
+
+      <aside class="stats-panel">
+        <h2>🧠 CONHECIMENTO INÚTIL</h2>
+        <div class="level-row"><span>LV. <b id="level">1</b></span><span><b id="xp">0</b>/100</span></div>
+        <div class="xp-track"><div id="xpBar"></div></div>
+        <hr>
+        <h3>ESTATÍSTICAS</h3>
+        <p>Curiosidades: <b id="factsCount">0</b></p>
+        <p>"Não sabia": <b id="didntKnowCount">0</b></p>
+        <p>"Já sabia": <b id="knewCount">0</b></p>
+        <p>Deu dedo: <b id="fingerCount">0</b></p>
+        <p>Mandou se fuder: <b id="swearCount">0</b></p>
+      </aside>
+
+      <div class="classroom-title">
+        <span>LAB DO</span>
+        <strong>BRYAN</strong>
+      </div>
+
+      <div class="bryan-area">
+        <div id="bryanPlaceholder" class="character-placeholder">
+          <div class="placeholder-icon">🤓☝️</div>
+          <span>COLOQUE AQUI<br>BRYAN-CIENTISTA.PNG</span>
+        </div>
+
+        <div id="dialogue" class="dialogue">
+          Olá. Eu sou o Bryan.<br>Quer aprender algo que provavelmente nunca vai usar?
+        </div>
+      </div>
+
+      <div class="controls">
+        <p>🧠 O que você deseja fazer agora?</p>
+        <div class="reaction-grid">
+          <button data-reaction="naoSabia">🧠 NÃO SABIA!</button>
+          <button data-reaction="jaSabia">😐 JÁ SABIA</button>
+          <button data-reaction="dedo">🖕 DAR DEDO</button>
+          <button data-reaction="xingar">😡 TE FUDER, BRYAN</button>
+          <button id="nextFact" class="next">↻ PRÓXIMA<br>CURIOSIDADE</button>
+        </div>
+      </div>
+
+      <div id="achievement" class="achievement" aria-live="polite"></div>
+    </section>
+
+    <!-- ALUNOS -->
+    <section id="alunos" class="screen students-screen">
+      <div class="students-header">
+        <h2>ALUNOS DO BRYAN</h2>
+        <p>Conheça as vítimas do ensino</p>
+      </div>
+
+      <article class="student-card">
+        <div class="student-photo">
+          <div id="studentPhoto" class="student-placeholder">FOTO<br>PERSONAGEM</div>
+        </div>
+
+        <div class="student-info">
+          <h2 id="studentName"></h2>
+          <div class="line"></div>
+          <p><strong>Classe:</strong> <span id="studentClass"></span></p>
+
+          <div class="stat">
+            <span>Inteligência:</span>
+            <div class="bar"><i id="studentIntelligence"></i></div>
+          </div>
+          <div class="stat">
+            <span>Paciência:</span>
+            <div class="bar"><i id="studentPatience"></i></div>
+          </div>
+          <div class="stat">
+            <span>Conhecimento inútil:</span>
+            <div class="bar"><i id="studentUseless"></i></div>
+          </div>
+
+          <p class="ability"><strong>Habilidade:</strong> <span id="studentAbility"></span></p>
+          <blockquote id="studentDescription"></blockquote>
+        </div>
+      </article>
+
+      <div class="student-nav">
+        <button id="prevStudent" aria-label="Aluno anterior">◀</button>
+        <div id="studentDots"></div>
+        <button id="nextStudent" aria-label="Próximo aluno">▶</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
